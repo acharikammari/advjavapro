@@ -1,0 +1,32 @@
+<html>
+	<head>
+		<title> ProductBill</title>
+	</head>
+	<body bgcolor="pink">
+		<form method="get" action="ProductServlet">
+			<h1>product bill calculation.....</h1>
+			<label>productId</label>
+			<input type="number" name="proID" placeholder="enterthe productid" required/>
+			
+			<br><br>
+			
+			<label>productName</label>
+			<input type="text" name="proName" placeholder="enter the productname"  required/>
+			
+			<br><br>
+			
+			<label>productPrice </label>
+			<input type="number" name="proPrice" placeholder="enter the productprice" required/>
+			
+			<br><br>
+			
+			<label>productQuantity </label>
+			<input type="number" name="proQuantity"  min="2" max="10" placeholder="enter the productquantity" required/>
+			
+			<br><br>
+			
+			<input type="submit" value="productInvoice"/>
+			
+		</form>
+	</body>
+</html>

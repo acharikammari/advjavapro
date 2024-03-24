@@ -1,0 +1,12 @@
+127.0.0.1 - - [18/Feb/2024:12:46:07 +0530] "GET / HTTP/1.1" 404 751
+0:0:0:0:0:0:0:1 - - [18/Feb/2024:12:46:09 +0530] "GET /GenerateNumberListapplication/ HTTP/1.1" 404 785
+0:0:0:0:0:0:0:1 - - [18/Feb/2024:12:46:10 +0530] "GET /favicon.ico HTTP/1.1" 404 762
+0:0:0:0:0:0:0:1 - - [18/Feb/2024:12:46:24 +0530] "GET /GenerateNumberListapplication/ HTTP/1.1" 404 785
+0:0:0:0:0:0:0:1 - - [18/Feb/2024:12:47:01 +0530] "GET /GenerateNumberListapplication/ HTTP/1.1" 404 785
+0:0:0:0:0:0:0:1 - - [18/Feb/2024:12:47:02 +0530] "GET /favicon.ico HTTP/1.1" 404 762
+0:0:0:0:0:0:0:1 - - [18/Feb/2024:12:47:22 +0530] "GET /GenerateNumberListapplication/numberslist.html HTTP/1.1" 200 728
+0:0:0:0:0:0:0:1 - - [18/Feb/2024:12:47:47 +0530] "GET /GenerateNumberListapplication/GenerateNumberslistServlet?first=1&end=100&operation=Even HTTP/1.1" 200 304
+0:0:0:0:0:0:0:1 - - [18/Feb/2024:12:47:54 +0530] "GET /GenerateNumberListapplication/GenerateNumberslistServlet?first=1&end=100&operation=odd HTTP/1.1" 200 302
+0:0:0:0:0:0:0:1 - - [18/Feb/2024:12:47:58 +0530] "GET /GenerateNumberListapplication/GenerateNumberslistServlet?first=1&end=100&operation=prime HTTP/1.1" 200 203
+0:0:0:0:0:0:0:1 - - [18/Feb/2024:12:48:02 +0530] "GET /GenerateNumberListapplication/GenerateNumberslistServlet?first=1&end=100&operation=perfect HTTP/1.1" 200 120
+0:0:0:0:0:0:0:1 - - [18/Feb/2024:12:48:07 +0530] "GET /GenerateNumberListapplication/GenerateNumberslistServlet?first=1&end=100&operation=Strong HTTP/1.1" 200 113

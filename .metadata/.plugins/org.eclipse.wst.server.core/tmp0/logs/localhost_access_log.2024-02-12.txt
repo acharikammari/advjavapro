@@ -1,0 +1,17 @@
+127.0.0.1 - - [12/Feb/2024:18:13:49 +0530] "GET / HTTP/1.1" 404 751
+0:0:0:0:0:0:0:1 - - [12/Feb/2024:18:13:51 +0530] "GET /Registration_application/ HTTP/1.1" 404 780
+0:0:0:0:0:0:0:1 - - [12/Feb/2024:18:13:51 +0530] "GET /favicon.ico HTTP/1.1" 404 762
+0:0:0:0:0:0:0:1 - - [12/Feb/2024:18:14:07 +0530] "GET /Registration_application/register.html HTTP/1.1" 200 1768
+0:0:0:0:0:0:0:1 - - [12/Feb/2024:18:15:27 +0530] "GET /RegistrationServlet?username=k.surendra+Achari&password=123456789&mobile=6301935214&email=surendra%40gmail.com&gender=male&dob=2024-02-26&qualification=btech&language=english&conntry=INDIA&comments=%09ratha+class+woww%0D%0Awowwowwowwowwwwww%09 HTTP/1.1" 404 770
+0:0:0:0:0:0:0:1 - - [12/Feb/2024:18:16:00 +0530] "GET /Registration_application/ HTTP/1.1" 404 780
+0:0:0:0:0:0:0:1 - - [12/Feb/2024:18:16:53 +0530] "GET /RegistrationServlet?username=surendra&password=123456789&mobile=630196547&email=surendra%40gmail.com&gender=male&dob=2024-02-26&qualification=btech&language=english&conntry=INDIA&comments=ratha+is+wow+wowwowwoowwwwwwwwwww%09%09 HTTP/1.1" 404 770
+127.0.0.1 - - [12/Feb/2024:18:18:19 +0530] "GET / HTTP/1.1" 404 751
+0:0:0:0:0:0:0:1 - - [12/Feb/2024:18:18:20 +0530] "GET /Registration_application/ HTTP/1.1" 404 780
+0:0:0:0:0:0:0:1 - - [12/Feb/2024:18:18:21 +0530] "GET /favicon.ico HTTP/1.1" 404 762
+0:0:0:0:0:0:0:1 - - [12/Feb/2024:18:18:27 +0530] "GET /Registration_application/register.html HTTP/1.1" 200 1769
+0:0:0:0:0:0:0:1 - - [12/Feb/2024:18:19:14 +0530] "GET /Registration_application/RegistrationServlet?username=k.surendra+Achari&password=123456789&mobile=630196548&email=surendra%40gmail.com&gender=male&dob=2024-02-13&language=english&conntry=INDIA&comments=ratan+classes+are+wowwowwwoooooooo%09%09 HTTP/1.1" 500 1318
+127.0.0.1 - - [12/Feb/2024:18:22:12 +0530] "GET / HTTP/1.1" 404 751
+0:0:0:0:0:0:0:1 - - [12/Feb/2024:18:22:13 +0530] "GET /Registration_application/ HTTP/1.1" 404 780
+0:0:0:0:0:0:0:1 - - [12/Feb/2024:18:22:20 +0530] "GET /Registration_application/register.html HTTP/1.1" 200 1769
+0:0:0:0:0:0:0:1 - - [12/Feb/2024:18:22:54 +0530] "GET /Registration_application/RegistrationServlet?username=k.surendra+Achari&password=123455&mobile=6301935214&email=surendra%40gmail.com&gender=male&dob=2024-02-14&qualification=btech&language=english&country=INDIA&comments=ratha+sir+wow+wow%09%09 HTTP/1.1" 200 350
+0:0:0:0:0:0:0:1 - - [12/Feb/2024:18:28:41 +0530] "GET /Registration_application/RegistrationServlet?username=k.surendra+Achari&password=123455&mobile=6301935214&email=surendra%40gmail.com&gender=male&dob=2024-02-14&qualification=btech&language=Telugu&language=Hindi&language=kanada&language=english&country=INDIA&comments=ratha+sir+wow+wow%09%09 HTTP/1.1" 200 370

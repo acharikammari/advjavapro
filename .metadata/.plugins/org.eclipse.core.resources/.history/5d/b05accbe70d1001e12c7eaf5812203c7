@@ -1,0 +1,45 @@
+<html>
+	<head>
+		<title>Httpsession</title>
+	</head>
+	<body bgcolor='yellow'>
+		<form method="post" action="./FirstServlet">
+		<label>username</label>
+		<input type="text" name="username" required>
+		<br><br>
+		
+		<label>age</label>
+		<input type="number" name="age" required>
+		<br><br>
+		
+		<input type="submit" value="next">
+		</form>
+	</body>
+</html>
+		
+		
+		
+		
+		
+		
+		
+		
+		</form>
+	
+	
+	
+	
+	
+	
+	</body>
+
+
+
+
+
+
+
+
+
+
+</html>

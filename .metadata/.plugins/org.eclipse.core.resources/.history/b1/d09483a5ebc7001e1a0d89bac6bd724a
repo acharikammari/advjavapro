@@ -1,0 +1,69 @@
+<html>
+	<head>
+			<title>Registration application</title>
+	</head>
+	<body bgcolor="yellow">
+		<h1>Registration form....</h1>
+		<form method="get" action="/RegistrationServlet">
+		<label>User Name:</label>
+		<input type="text" name="username" required>
+		<br><br>
+		
+		<label>password</label>		
+		<input type="password" name="password" required>
+		<br><br>
+		
+		<label> user mobile</label>
+		<input type="number" name="mobile" required>
+		<br><br>
+		
+		<label>user email</label>
+		<input type="email" name="email" required>
+		<br><br>
+		
+		<label>gender</label>
+		<input type="radio" name="gender" value="male">male
+		<input type="radio" name="gender" value="female">female
+		<br><br>
+		
+		<label>Select dob</label>
+		<input type="date" name="dob" required>
+		<br><br>
+		
+		<label>qualification</label>
+		<input type="checkbox" name="qualification">bsc
+		<input type="checkbox" name="qualification">btech
+		<input type="checkbox" name="qualification">mca
+		<input type="checkbox" name="qualification">btech
+		<br><br>
+		
+		<label>select language:</label>
+		<select name="language" size="3" multiple>
+				<option>Telugu</option>
+				<option>Hindi</option>
+				<option>kanada</option>
+				<option>english</option>
+				<option>tamil</option>
+		</select>
+		<br><br>
+		
+		<label>country:</label>
+		<select name="conntry">
+				<option>INDIA</option>
+				<option>CHAINA</option>
+				<option>AFRICA</option>
+				<option>AMEERPET</option>
+		</select>
+		<br><br>
+			
+		<label>comment about ratan sir</label>
+		<textarea   rows="5" cols="25">
+		</textarea>
+		<br><br>
+		
+		<input type="submit" value="Register">
+		
+		
+		</form>
+	</body>
+</html>

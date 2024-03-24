@@ -1,0 +1,92 @@
+package com.sathya.selvlet;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.sql.Date;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.Part;
+
+import org.apache.commons.io.IOUtils;
+
+
+@WebServlet("/UpdateProductServlet")
+@MultipartConfig
+public class UpdateProductServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+    
+    public UpdateProductServlet() {
+        super();
+        
+    }
+
+	
+	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+ //read the  from form data
+		
+		String proId=request.getParameter("proId");
+		String updateproName=request.getParameter("proName");
+		
+		double updateproPrice=Double.parseDouble(request.getParameter("proPrice"));
+		String updateproBrand=request.getParameter("proBrand");
+		String updateMadeIN=request.getParameter("proMadeIn");
+		
+		Date updatemfgDate = Date.valueOf(request.getParameter("proMfgDate"));
+		Date updateexpDate = Date.valueOf(request.getParameter("proExpDate"));
+
+
+//		Part part=request.getPart("proImage");
+//		InputStream inputStream=part.getInputStream();
+//		
+//		byte[] proImage=IOUtils.toByteArray(inputStream);
+		
+		
+		Product1 product=new Product1();
+		product.setProId(proId);
+		product.setProName(updateproName);
+		product.setProPrice(updateproPrice);
+		product.setProBrand(updateproBrand);
+		product.setProMadeIn(updateMadeIN);
+		product.setProMfgDate(updatemfgDate);
+		product.setProExpDate(updateexpDate);
+		
+		Part filePart=request.getPart("newProImage");//newproimage is the name of the file input field
+		
+		if(filePart!=null && filePart.getSize()>0)
+		{
+			InputStream inputStream1=filePart.getInputStream();
+			byte[]newImageData=IOUtils.toByteArray(inputStream1);
+			product.setProImage(newImageData);
+		}
+		else
+		{
+			Part file=request.getPart("existingImage");
+			
+			InputStream inputStream1=file.getInputStream();
+			byte[]existingImage=IOUtils.toByteArray(inputStream1);
+			product.setProImage(existingImage);
+		}
+		
+		Product1Dao dao=new Product1Dao();
+			int result=dao.updatedById(product);
+			
+			if(result==1)
+			{
+				RequestDispatcher dispatcher=request.getRequestDispatcher("productlist.jsp");
+				dispatcher.forward(request, response);
+			}
+			else
+			{
+				
+				RequestDispatcher dispatcher=request.getRequestDispatcher("Addproduct.html");
+				dispatcher.include(request, response);
+			}
+		}
+}

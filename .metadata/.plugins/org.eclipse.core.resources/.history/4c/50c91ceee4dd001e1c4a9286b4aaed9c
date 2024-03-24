@@ -1,0 +1,188 @@
+package com.sathya.selvlet;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+
+
+
+
+
+
+public class Product1Dao 
+{
+	public int save(Product1 product)
+	{
+	//Declare the resources
+	Connection connection=null;
+	PreparedStatement ps=null;
+	int count=0;
+	try
+	{
+		//get the connection
+		connection =DbconnectionProduct.createConnection();
+		//create the ps object
+		ps=connection.prepareStatement("insert into product_data values(?,?,?,?,?,?,?,?,?,?)");
+		
+		//read the data from product object and set to parameters 
+		ps.setString(1,product.getProId());
+		ps.setString(2,product.getProName());
+		
+		ps.setDouble(3,product.getProPrice());
+		ps.setString(4,product.getProBrand());
+		ps.setString(5,product.getProMadeIn());
+		
+		ps.setDate(6,product.getProMfgDate());
+		ps.setDate(7,product.getProExpDate());
+	
+		ps.setBytes(8,product.getProImage());
+		
+		ps.setBytes(9,product.getProAudio());
+		ps.setBytes(10, product.getProvideo());
+		
+		count=ps.executeUpdate();
+	}
+	catch(SQLException e)
+	{
+		e.printStackTrace();
+	}
+	finally {
+		//before release connection check the connection preset or no
+		try{
+			if (connection!=null)
+				
+				
+				connection.close();
+		
+			if(ps!=null)
+			
+				ps.close();
+		}
+		catch ( SQLException e ) {
+			e.printStackTrace();
+		}
+	}
+	return count;
+	}
+	public List<Product1>findAll()
+	{
+		List<Product1> lp=new ArrayList<Product1>();
+		
+		try(Connection connetion=DbconnectionProduct .createConnection();
+				Statement statement=connetion.createStatement())
+		{
+			ResultSet resultSet=statement.executeQuery("select *from  product_data");
+			
+			while(resultSet.next())
+			{
+				Product1 product=new Product1();
+				product.setProId(resultSet.getString("proId"));
+				product.setProName(resultSet.getString("proName"));
+				product.setProPrice(resultSet.getDouble("proPrice"));
+				product.setProBrand(resultSet.getString("proBrand"));
+				product.setProMadeIn(resultSet.getString("proMadeIn"));
+				product.setProMfgDate(resultSet.getDate("ProMfgDate"));
+				product.setProExpDate(resultSet.getDate("proExpDate"));
+				product.setProImage(resultSet.getBytes("proImage"));
+				product.setProAudio(resultSet.getBytes("proAudio"));
+				product.setProvideo(resultSet.getBytes("provideo"));
+				
+				lp.add(product);
+			}
+		}
+			catch(SQLException e)
+			{
+				e.printStackTrace();
+			}
+			return lp;
+
+		}
+	
+	
+	public int deletebyId(String proId)
+	{
+		int count=0;
+	
+		try(Connection connetion=DbconnectionProduct.createConnection();
+				PreparedStatement preparedStatement=connetion.prepareStatement("delete from product_data where PROID=?"))
+			
+		{
+			//set the data to parameter
+			preparedStatement.setString(1,proId);
+			count=preparedStatement.executeUpdate();
+
+		}
+		catch(SQLException e)
+		{
+			e.printStackTrace();
+		}
+		return count;
+	}
+	
+	
+public Product1 findById(String ProId)
+{
+	 	Product1 product = null;
+	 	try(Connection connetion=DbconnectionProduct.createConnection();
+		PreparedStatement preparedStatement=connetion.prepareStatement("select * from product_data where PROID=?"))
+	 	{
+	 		//set the data to parameter
+	 		preparedStatement.setString(1,ProId);
+		
+	 		//exceute the query
+	 		ResultSet resultSet=preparedStatement.executeQuery();
+		
+	 		//if the record is present execute below code,if the record is not present it returns null
+	 		if(resultSet.next())
+	 		{
+	 			 product = new Product1();
+	 			
+	 			product.setProId(resultSet.getString("proId"));
+				product.setProName(resultSet.getString("proName"));
+				product.setProPrice(resultSet.getDouble("proPrice"));
+				product.setProBrand(resultSet.getString("proBrand"));
+				product.setProMadeIn(resultSet.getString("proMadeIn"));
+				product.setProMfgDate(resultSet.getDate("ProMfgDate"));
+				product.setProExpDate(resultSet.getDate("proExpDate"));
+				product.setProImage(resultSet.getBytes("proImage"));
+	 	}
+	 	}
+		catch(SQLException e)
+		{
+			e.printStackTrace();
+		}
+	 	return product;
+	}
+	
+	public int updatedById(Product1 product)
+	{
+		String sql="UPDATE product_data set proName=?,proPrice=?,proBrand=?,proMadeIn=?,proMfgDate=?,proExpDate=?,proImage=?  where proId=?";
+		 
+		int updateResult=0;
+		
+		try(Connection connetion=DbconnectionProduct.createConnection())
+		{
+			PreparedStatement preparedStatement=connetion.prepareStatement(sql);
+			preparedStatement.setString(1, product.getProName());
+			preparedStatement.setDouble(2, product.getProPrice());
+			preparedStatement.setString(3, product.getProBrand());
+			preparedStatement.setString(4, product.getProMadeIn());
+			preparedStatement.setDate(5, product.getProMfgDate());
+			preparedStatement.setDate(6, product.getProExpDate());
+			preparedStatement.setBytes(7, product.getProImage());
+			preparedStatement.setString(8, product.getProId());
+			updateResult=preparedStatement.executeUpdate();
+		}
+		catch(SQLException e)
+		{
+			e.printStackTrace();
+		}
+		return updateResult; 
+	}
+}	
+
+
